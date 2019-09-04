@@ -2,15 +2,21 @@
 
 @{
     ViewBag.Title = "PracView";
+    int testInt = 0;
 }
 
 <h2>PracView</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
+    // our views are basically just an html page, anything behind a @ symbol is referencing c# code
+
     
+
+
     <div class="form-horizontal">
         <h4>Input Form to create a practice model, this form has validation on it</h4>
         <hr />
@@ -57,6 +63,10 @@
 
 <div>
     @Html.ActionLink("Back to List", "Index")
+</div>
+
+<div>
+    <p>display a variable we created in view:  @testInt</p> <!--this is displaying test int-->
 </div>
 
 @section Scripts {
