@@ -34,14 +34,16 @@ namespace PracWebApp.Controllers
         }
 
         
-
+        // actions are what direct us around the web app.
         public ActionResult PracView()
         {
+            //data can be transfered inside viewbags, think of them like taking a bag to shit to the view
             ViewBag.Message = "Your contact page.";
-
+            // giving us the view, can add parameters if needed
             return View();
         }
 
+        // POST is our HHTP request type. validation is just a extra form of validation given to us by .net
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult PracView(PracModel pracModel )
@@ -51,6 +53,7 @@ namespace PracWebApp.Controllers
             {
 
                 prac.PracFunctionCall(pracModel);
+                // going back to index if form was filled out correctly
                 return RedirectToAction("Index");
             }
 
